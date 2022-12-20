@@ -117,8 +117,11 @@ namespace client { namespace parser
             |   (unary_op > primary_expr)
             ;
 
+        quoted_string = '"'>>*('\\'>>char_ | ~char_('"')) >> '"';
+        
         primary_expr =
                 uint_
+            |   quoted_string
             |   identifier
             |   bool_
             |   '(' > expr > ')'

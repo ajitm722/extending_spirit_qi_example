@@ -25,6 +25,7 @@ namespace client { namespace code_gen
     {
         void op(int a);
         void op(int a, int b);
+        void op(int a, std::string const& b);
         void op(int a, int b, int c);
 
         int& operator[](std::size_t i) { return code[i]; }
@@ -68,6 +69,7 @@ namespace client { namespace code_gen
         bool operator()(ast::nil) const { BOOST_ASSERT(0); return false; }
         bool operator()(unsigned int x) const;
         bool operator()(bool x) const;
+        bool operator()(std::string const& x) const;
         bool operator()(ast::variable const& x) const;
         bool operator()(ast::operation const& x) const;
         bool operator()(ast::unary const& x) const;

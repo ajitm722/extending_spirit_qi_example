@@ -18,7 +18,14 @@ namespace client { namespace code_gen
     {
         code.push_back(a);
     }
-
+    void program::op(int a,std::string const &b)
+    {
+        code.push_back(a);
+        code.push_back(b.size());
+        for(uintptr_t ch : b){
+            code.push_back(ch);
+        }
+    }
     void program::op(int a, int b)
     {
         code.push_back(a);
@@ -213,7 +220,11 @@ namespace client { namespace code_gen
         program.op(x ? op_true : op_false);
         return true;
     }
-
+    bool compiler::operator()(std::string const& x) const
+    {
+        program.op(op_string , x);
+        return true;
+    }
     bool compiler::operator()(ast::variable const& x) const
     {
         int const* p = program.find_var(x.name);

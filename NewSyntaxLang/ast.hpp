@@ -39,6 +39,7 @@ namespace client { namespace ast
             nil
           , bool
           , unsigned int
+          , char*
           , variable
           , boost::recursive_wrapper<unary>
           , boost::recursive_wrapper<expression>

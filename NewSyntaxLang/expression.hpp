@@ -52,6 +52,10 @@ namespace client { namespace parser
             identifier
             ;
 
+        qi::rule<Iterator, std::string()>
+            quoted_string
+            ;
+
         qi::symbols<char, ast::optoken>
             equality_op, relational_op, logical_op,
             additive_op, multiplicative_op, unary_op

@@ -36,6 +36,7 @@ namespace client
         op_load,        //  load a variable
         op_store,       //  store a variable
 
+        op_string,      //  push constant string onto the stack 
         op_int,         //  push constant integer into the stack
         op_true,        //  push constant 0 into the stack
         op_false,       //  push constant 1 into the stack
